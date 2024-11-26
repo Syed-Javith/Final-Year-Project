@@ -2,7 +2,7 @@ const Patient = require('../models/Patient')
 
 const findPatientById = async (id) => {
     try {
-        const patient = await Patient.findOne({ id : id });
+        const patient = await Patient.findOne({ _id : id });
         console.log(patient);
         console.log(id);
         return patient;

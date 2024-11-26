@@ -36,3 +36,55 @@
     transform: rotate(360deg);
   }
 }
+
+.patient-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.patient-card {
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+/* Title styling */
+.patient-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #4caf50;
+  text-transform: uppercase;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 10px;
+}
+
+/* Info styling */
+.patient-info {
+  text-align: left;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* Highlight key details */
+.patient-info strong {
+  color: #4caf50;
+}
+
+/* Loading screen styling */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  color: #555;
+}
