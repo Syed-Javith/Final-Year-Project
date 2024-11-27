@@ -7,7 +7,9 @@ import {jwtDecode} from 'jwt-decode';
 const Dashboard = () => {
   const token = localStorage.getItem('token');
   const role = token ? jwtDecode(token).role : null;
-  const id = token ? jwtDecode(token)._id : null;
+  const id = token ? jwtDecode(token).patient_id : null;
+  console.log(jwtDecode(token));
+  
   
   return (
     <div>

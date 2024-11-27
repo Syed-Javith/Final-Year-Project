@@ -2,35 +2,35 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User'); // Assuming the User model is in /models/User
+const Patient = require('../models/Patient');
 
 // Register controller
 const register = async (req, res) => {
   const { username, password, role } = req.body;
 
   try {
-    // Check if the username already exists
+    
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
     }
-
-    // Hash the password before saving it to the database
-    // const hashedPassword = await bcrypt.hash(password, 10);
+    let id;
+    if(role==="patient"){
+      id = Date.now();
+      const patient = new Patient({ patient_id : id })
+      await patient.save();
+    }
     const hashedPassword = password;
-    // Create a new user instance
+    
     const newUser = new User({
       username,
       password: hashedPassword,
-      role, // 'admin', 'doctor', 'patient'
+      role,
     });
 
-    // Save the new user to the database
     await newUser.save();
-
-    // Respond with success message
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
-    // Handle errors (e.g., server errors)
     res.status(500).json({ message: 'Error registering user' });
   }
 };
@@ -55,10 +55,13 @@ const login = async (req, res) => {
       console.log("Pwd Mismatch");
       return res.status(400).json({ message: 'Invalid credentials' });
     }
-
+    let patient = null;
+    if(user.role==="patient"){
+      patient = await Patient.findOne({ patient_name : username})
+    }
     // Generate a JWT token
     const token = jwt.sign(
-      { _id: user._id, role: user.role }, 
+      { _id: user._id, role: user.role , patient_id : patient?.patient_id }, 
       process.env.JWT_SECRET,  // Ensure you have a JWT secret stored in .env file
       { expiresIn: '1h' }  // Token expires in 1 hour
     );
