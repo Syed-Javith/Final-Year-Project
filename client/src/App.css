@@ -89,3 +89,111 @@
   font-size: 18px;
   color: #555;
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  margin: 5px;
+}
+
+.admin-dashboard {
+  text-align: center;
+  padding: 20px;
+}
+
+.open-modal-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.open-modal-btn:hover {
+  background-color: #0056b3;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.file-input {
+  margin: 15px 0;
+  padding: 10px;
+}
+
+.upload-btn, .close-modal-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-btn {
+  background-color: #28a745;
+}
+
+.upload-btn:hover {
+  background-color: #218838;
+}
+
+.close-modal-btn {
+  background-color: #dc3545;
+}
+
+.close-modal-btn:hover {
+  background-color: #c82333;
+}
+
+.upload-status {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
