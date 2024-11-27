@@ -20,7 +20,9 @@ const PatientDetailsPage = ({ pId }) => {
 
     return patient ? (
         <div className="patient-details-container">
+            <div style={{backgroundColor : "white" , margin : "10px" , padding : "5px" , borderRadius : "5px"}}>
             <h1 className="patient-title">Patient Details</h1>
+            </div>
             <div className="patient-card">
                 <div className="patient-info">
                     <p><strong>Patient ID:</strong> {patient.patient_id}</p>
